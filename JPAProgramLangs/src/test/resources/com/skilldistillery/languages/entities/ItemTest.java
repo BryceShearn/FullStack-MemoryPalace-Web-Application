@@ -14,16 +14,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class LanguageTest {
+class ItemTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Language language;
+	private Item item;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 	emf = Persistence.createEntityManagerFactory("programLangsPU");
-	
 	}
 
 	@AfterAll
@@ -34,19 +33,25 @@ class LanguageTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		language = em.find(Language.class, 1);
+		item = em.find(Item.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		language = null;
+		item = null;
 	}
 
 	@Test
-	@DisplayName(" testing language table path")
+	@DisplayName(" testing mapping of Item table relation ")
 	void test() {
-		assertNotNull(language);
-		assertEquals("Lena", language.getName());
+		assertNotNull(item);
+		assertEquals(1 , item.getId());
+		assertEquals(1 , item.getRoom_id());
+		assertEquals("coffee table" , item.getLocation());
+		assertEquals("car keys" , item.getName());
+		assertEquals("meaning: There are 8 primary data types in java" , item.getDescription());
+		assertEquals("relative disc image locat item" , item.getPhoto());
+		assertEquals(true , item.isActive());
 	}
 }

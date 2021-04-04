@@ -7,7 +7,9 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
     <!-- entities -->
-    <class>com.skilldistillery.languages.entities.language</class>
+    <class>com.skilldistillery.languages.entities.User</class>
+    <class>com.skilldistillery.languages.entities.Room</class>
+    <class>com.skilldistillery.languages.entities.Item</class>
     
     <!-- entities -->
     <properties>
