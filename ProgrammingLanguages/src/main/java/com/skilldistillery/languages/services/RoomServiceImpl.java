@@ -12,7 +12,7 @@ import com.skilldistillery.languages.repositories.UserRepository;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService{
+public class RoomServiceImpl implements UserService{
 
 	@Autowired
 	private UserRepository repo;

@@ -6,6 +6,8 @@ import com.skilldistillery.languages.entities.User;
 
 public interface UserService {
 
-	List <User> allLanguages();
-	User retrieveLanguage(int languageId);
+	List <User> allUsers();
+	
+	User retrieveMainLocation(String mainLocation);
+	
 }
