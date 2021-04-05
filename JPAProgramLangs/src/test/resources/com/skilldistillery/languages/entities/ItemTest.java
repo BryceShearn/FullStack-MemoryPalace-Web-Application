@@ -47,7 +47,6 @@ class ItemTest {
 	void test() {
 		assertNotNull(item);
 		assertEquals(1 , item.getId());
-		assertEquals(1 , item.getRoom_id());
 		assertEquals("coffee table" , item.getLocation());
 		assertEquals("car keys" , item.getName());
 		assertEquals("meaning: There are 8 primary data types in java" , item.getDescription());

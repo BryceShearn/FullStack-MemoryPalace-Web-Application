@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.languages.entities.User;
-import com.skilldistillery.languages.repositories.LanguageRepository;
+import com.skilldistillery.languages.repositories.UserRepository;
 
 @Service
 @Transactional
-public class LanguageServiceImpl implements LanguageService{
+public class UserServiceImpl implements UserService{
 
 	@Autowired
-	private LanguageRepository repo;
+	private UserRepository repo;
 	
 	@Override
 	public List<User> allLanguages() {

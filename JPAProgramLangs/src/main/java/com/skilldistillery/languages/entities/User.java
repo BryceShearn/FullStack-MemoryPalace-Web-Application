@@ -1,9 +1,12 @@
 package com.skilldistillery.languages.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -21,22 +24,26 @@ public class User {
 
 	private String mainLocation;
 
+	@OneToMany(mappedBy = "user")
+	private List<Room> rooms;
+
 	
 	public User() {
 		super();
 	}
 
-	
-	public User(int id, String username, String password, boolean isActive, String mainLocation) {
+
+	public User(int id, String username, String password, boolean isActive, String mainLocation, List<Room> rooms) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.isActive = isActive;
 		this.mainLocation = mainLocation;
+		this.rooms = rooms;
 	}
 
-	
+
 	public int getId() {
 		return id;
 	}
@@ -77,7 +84,15 @@ public class User {
 		this.mainLocation = mainLocation;
 	}
 
-	
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
+	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -86,6 +101,7 @@ public class User {
 		result = prime * result + (isActive ? 1231 : 1237);
 		result = prime * result + ((mainLocation == null) ? 0 : mainLocation.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((rooms == null) ? 0 : rooms.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -113,6 +129,11 @@ public class User {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (rooms == null) {
+			if (other.rooms != null)
+				return false;
+		} else if (!rooms.equals(other.rooms))
+			return false;
 		if (username == null) {
 			if (other.username != null)
 				return false;
@@ -127,8 +148,7 @@ public class User {
 		StringBuilder builder = new StringBuilder();
 		builder.append("User [id=").append(id).append(", username=").append(username).append(", password=")
 				.append(password).append(", isActive=").append(isActive).append(", mainLocation=").append(mainLocation)
-				.append("]");
+				.append(", rooms=").append(rooms).append("]");
 		return builder.toString();
 	}
-}
-	
+}	

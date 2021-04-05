@@ -1,10 +1,11 @@
 package com.skilldistillery.languages.entities;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Item {
@@ -23,16 +24,17 @@ public class Item {
 	
 	private boolean isActive;
 	
-	@Column(name = "room_id")
-	private int room_id;
-
-
+	@ManyToOne
+	@JoinColumn(name = "room_id")
+	Room room;
+	
+	
 	public Item() {
 		super();
 	}
 
-
-	public Item(int id, String location, String name, String description, String photo, boolean isActive, int room_id) {
+	
+	public Item(int id, String location, String name, String description, String photo, boolean isActive, Room room) {
 		super();
 		this.id = id;
 		this.location = location;
@@ -40,9 +42,8 @@ public class Item {
 		this.description = description;
 		this.photo = photo;
 		this.isActive = isActive;
-		this.room_id = room_id;
+		this.room = room;
 	}
-
 
 	public int getId() {
 		return id;
@@ -92,15 +93,15 @@ public class Item {
 		this.isActive = isActive;
 	}
 
-	public int getRoom_id() {
-		return room_id;
+	public Room getRoom() {
+		return room;
 	}
 
-	public void setRoom_id(int room_id) {
-		this.room_id = room_id;
+	public void setRoom(Room room) {
+		this.room = room;
 	}
 
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -111,7 +112,7 @@ public class Item {
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((photo == null) ? 0 : photo.hashCode());
-		result = prime * result + room_id;
+		result = prime * result + ((room == null) ? 0 : room.hashCode());
 		return result;
 	}
 
@@ -148,18 +149,21 @@ public class Item {
 				return false;
 		} else if (!photo.equals(other.photo))
 			return false;
-		if (room_id != other.room_id)
+		if (room == null) {
+			if (other.room != null)
+				return false;
+		} else if (!room.equals(other.room))
 			return false;
 		return true;
 	}
 
-
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Item [id=").append(id).append(", location=").append(location).append(", name=").append(name)
 				.append(", description=").append(description).append(", photo=").append(photo).append(", isActive=")
-				.append(isActive).append(", room_id=").append(room_id).append("]");
+				.append(isActive).append(", room=").append(room).append("]");
 		return builder.toString();
 	}
 }

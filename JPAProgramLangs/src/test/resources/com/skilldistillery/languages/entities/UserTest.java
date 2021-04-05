@@ -52,4 +52,12 @@ class UserTest {
 		assertEquals(true , user.isActive());
 		assertEquals("home", user.getMainLocation());
 	}
+
+	@Test
+	@DisplayName(" Testing User to Room relationship")
+	void test1() {
+		assertNotNull(user);
+		assertEquals("living room", user.getRooms().get(0).getName());
+		assertEquals("living room holds three items", user.getRooms().get(0).getDescription());
+	}
 }

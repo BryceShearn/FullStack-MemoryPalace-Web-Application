@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.languages.entities.User;
-import com.skilldistillery.languages.services.LanguageService;
+import com.skilldistillery.languages.services.UserService;
 
 @RequestMapping("api")
 @RestController
-public class LanguageController {
+public class UserController {
 
 	@Autowired
-	private LanguageService svc;
+	private UserService svc;
 	
 	@GetMapping("ping")
 	public String ping() {
@@ -26,4 +26,7 @@ public class LanguageController {
 	public List<User> listAll() {
 		return svc.allLanguages();
 	}
+
+
+
 }

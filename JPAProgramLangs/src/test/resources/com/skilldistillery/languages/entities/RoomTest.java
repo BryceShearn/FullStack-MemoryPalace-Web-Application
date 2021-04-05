@@ -48,10 +48,17 @@ class RoomTest {
 	void test() {
 		assertNotNull(room);
 		assertEquals(1, room.getId());
-		assertEquals(1, room.getUserId());
 		assertEquals("living room", room.getName());
 		assertEquals("living room holds three items", room.getDescription());
 		assertEquals("relative disc image locat room", room.getPhoto());
 		assertEquals(true, room.isActive());
+	}
+	
+	@Test
+	@DisplayName(" Testing User to Room relationship")
+	void test1() {
+		assertNotNull(room);
+		assertEquals("meaning: There are 8 primary data types in java", room.getItems().get(0).getDescription());
+		assertEquals("coffee table", room.getItems().get(0).getLocation());
 	}
 }
