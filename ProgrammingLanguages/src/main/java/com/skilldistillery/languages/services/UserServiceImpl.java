@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.languages.entities.Room;
 import com.skilldistillery.languages.entities.User;
 import com.skilldistillery.languages.repositories.UserRepository;
 
@@ -15,15 +16,24 @@ import com.skilldistillery.languages.repositories.UserRepository;
 public class UserServiceImpl implements UserService{
 
 	@Autowired
-	private UserRepository repo;
+	private UserRepository userRepo;
+	
 	
 	@Override
-	public List<User> allUsers() {
-		return repo.findAll();
+	public List<Room> listRoomsForUserId(int userId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
+
 	@Override
-	public User retrieveMainLocation(String mainLocation) {
-		return retrieveMainLocation(mainLocation);
+	public Room createRoom(int userId, Room room) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteRoom(Integer roomId, Integer userId) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

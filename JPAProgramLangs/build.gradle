@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
+
 /*
 name your project's dependency group and give it an initial version.
 the 'artifactId' is assigned automatically based on the project's name.
@@ -35,6 +36,7 @@ ext {
 
 // define project specific dependencies
 dependencies {
+  
   compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.7'
   compile "mysql:mysql-connector-java:$mySqlConnectorVersion"
   compile "log4j:log4j:1.2.17"
