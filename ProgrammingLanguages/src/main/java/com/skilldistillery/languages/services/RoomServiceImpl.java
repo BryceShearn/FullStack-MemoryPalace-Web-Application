@@ -15,7 +15,7 @@ import com.skilldistillery.languages.repositories.UserRepository;
 
 @Service
 @Transactional
-public class RoomServiceImpl implements UserService{
+public class RoomServiceImpl implements RoomService{
 
 	@Autowired
 	private RoomRepository roomRepo;
@@ -46,7 +46,7 @@ public class RoomServiceImpl implements UserService{
 	@Override
 	public boolean deleteRoom(Integer roomId, Integer userId) {
 		boolean deleted = false;
-		Optional<Room> roomOpt = roomRepo.findById(roomId);
+		Optional <Room> roomOpt = roomRepo.findById(roomId);
 		if(roomOpt.isPresent()) {
 			if (roomOpt.get().getUser().getId() == userId) {
 				roomRepo.deleteById(roomId);
@@ -54,5 +54,22 @@ public class RoomServiceImpl implements UserService{
 			}
 		}
 		return deleted;
+	}
+
+
+	@Override
+	public Room updateRoom(int roomId, Room room) {
+		Optional <Room> updateRoomOpt = roomRepo.findById(roomId);
+		if(updateRoomOpt.isPresent()) {
+			Room managedRoom = updateRoomOpt.get();
+			managedRoom.setName(room.getName());
+			managedRoom.setName(room.getName());
+			managedRoom.setName(room.getName());
+			managedRoom.setName(room.getName());
+			managedRoom.setName(room.getName());
+			roomRepo.saveAndFlush(managedRoom);
+			return managedRoom;
+		}
+		return null;
 	}
 }

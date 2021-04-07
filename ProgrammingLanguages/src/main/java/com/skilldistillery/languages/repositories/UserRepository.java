@@ -6,5 +6,4 @@ import com.skilldistillery.languages.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Integer>{
 
-	
 }

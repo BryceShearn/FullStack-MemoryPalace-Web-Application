@@ -10,5 +10,7 @@ public interface RoomService {
 	
 	Room createRoom(int roomId, Room Room);
 
-	public boolean deleteRoom(Integer roomId, Integer userId); 
+	public boolean deleteRoom(Integer roomId, Integer userId);
+	
+	Room updateRoom(int roomId, Room room);
 }

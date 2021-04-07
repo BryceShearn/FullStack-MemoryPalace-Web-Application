@@ -51,7 +51,7 @@ public class RoomController {
 			}
 		return room;
 	}
-	@DeleteMapping("users/{userId}/rooms/{roomId)")
+	@DeleteMapping("users/{userId}/rooms/{roomId}")
 	public void deleteRoomFromUser (Integer userId, 
 									Integer roomId,
 									HttpServletResponse resp) {
