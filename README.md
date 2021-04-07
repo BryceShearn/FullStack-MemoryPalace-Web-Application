@@ -7,7 +7,7 @@ This Application was created to help users improve memory through the use of a "
 
 ### Technology Overview:
 
-This program is designed to be a REST API that creates, reads, updates and deletes user and beverage data from a database built using MySQL Workbench and connecting with using Spring Data JPA.
+This program is designed to be a REST API that creates, reads, updates and deletes user Memory Palace data from a database built using MySQL Workbench and connecting with using Spring Data JPA.
 
 ## How to Run
 1. The user begins by logging in or creating their account
