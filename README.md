@@ -1,6 +1,6 @@
 # Memory Palace Application
 
-<img src="https://images.unsplash.com/photo-1603525689518-1d8c608e5cbe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80" width="1400" height="800"></img> 
+<img src="https://images.unsplash.com/photo-1603525689518-1d8c608e5cbe?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80" width="1000" height="800"></img> 
 
 ## Purpose Overview
 This Application was created to help users improve memory through the use of a "Mind Palace" or "Memory Palace" referencing the Ancient Greek Strategy known as 'The Method of Loci'. If you've ever heard someone say "In the first place", this is precisely what they were referencing! Practicing this strategy regularly can significantly increase the recollection of information through the use of familiar smatial environments. The goal of this project is to help practice this method through repetition using their visible Mind Palace Map as a reference to their improvement! This is a Two Step implementation Application to which Step 1 has been completed. Step 2 will begin on April 9th 2021 which will create and implement the Front-End GUI via Angular JS.
