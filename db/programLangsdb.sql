@@ -22,10 +22,10 @@ DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `userName` VARCHAR(45) NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `isActive` TINYINT NOT NULL DEFAULT 1,
-  `mainLocation` TEXT(100) NOT NULL,
+  `is_active` TINYINT NOT NULL DEFAULT 1,
+  `main_location` TEXT(100) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `room` (
   `name` TEXT(200) NULL,
   `description` TEXT(200) NULL,
   `photo` VARCHAR(45) NULL,
-  `isActive` TINYINT NOT NULL DEFAULT 1,
+  `is_active` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_room_user_idx` (`user_id` ASC),
   CONSTRAINT `fk_room_user`
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `name` TEXT(200) NULL,
   `description` TEXT(200) NULL,
   `photo` VARCHAR(45) NULL,
-  `isActive` TINYINT NOT NULL DEFAULT 1,
+  `is_active` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   INDEX `fk_items_room1_idx` (`room_id` ASC),
   CONSTRAINT `fk_items_room1`
@@ -75,8 +75,9 @@ CREATE TABLE IF NOT EXISTS `item` (
 ENGINE = InnoDB;
 
 SET SQL_MODE = '';
-
+DROP USER IF EXISTS programLangsUser@localhost;
 SET SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+CREATE USER 'programLangsUser'@'localhost' IDENTIFIED BY 'programLangsUser';
 
 GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'programLangsUser'@'localhost';
 
@@ -89,7 +90,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `programLangsdb`;
-INSERT INTO `user` (`id`, `userName`, `password`, `isActive`, `mainLocation`) VALUES (1, 'testUser', 'password', 1, 'home');
+INSERT INTO `user` (`id`, `username`, `password`, `is_active`, `main_location`) VALUES (1, 'testUser', 'password', 1, 'home');
 
 COMMIT;
 
@@ -99,7 +100,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `programLangsdb`;
-INSERT INTO `room` (`id`, `user_id`, `name`, `description`, `photo`, `isActive`) VALUES (1, 1, 'living room', 'living room holds three items', 'relative disc image locat room', 1);
+INSERT INTO `room` (`id`, `user_id`, `name`, `description`, `photo`, `is_active`) VALUES (1, 1, 'living room', 'living room holds three items', 'relative disc image locat room', 1);
 
 COMMIT;
 
@@ -109,6 +110,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `programLangsdb`;
-INSERT INTO `item` (`id`, `room_id`, `location`, `name`, `description`, `photo`, `isActive`) VALUES (1, 1, 'coffee table', 'car keys', 'meaning: There are 8 primary data types in java', 'relative disc image locat item', 1);
+INSERT INTO `item` (`id`, `room_id`, `location`, `name`, `description`, `photo`, `is_active`) VALUES (1, 1, 'coffee table', 'car keys', 'meaning: There are 8 primary data types in java', 'relative disc image locat item', 1);
 
 COMMIT;
+

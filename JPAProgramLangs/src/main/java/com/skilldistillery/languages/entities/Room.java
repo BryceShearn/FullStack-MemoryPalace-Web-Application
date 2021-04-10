@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Room {
 
@@ -30,6 +32,7 @@ public class Room {
 	@JoinColumn(name = "user_id")
 	User user;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "room")
 	private List<Item> items;
 	

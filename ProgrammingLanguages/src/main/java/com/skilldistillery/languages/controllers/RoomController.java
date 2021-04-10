@@ -21,11 +21,13 @@ import com.skilldistillery.languages.services.RoomService;
 @RestController
 public class RoomController {
 
+	private int userId = 1;
+	
 	@Autowired
 	private RoomService svc;
 	
-	@GetMapping("users/{userId}/rooms")
-	public List<Room> listAllRoomsForUser(@PathVariable Integer userId,
+	@GetMapping("rooms")
+	public List<Room> listAllRoomsForUser( 
 										   HttpServletResponse resp) {
 		List<Room> rooms = svc.listRoomsForUserId(userId);
 		if (rooms == null) {
@@ -33,8 +35,8 @@ public class RoomController {
 		}
 		return rooms;
 	}
-	@PostMapping("rooms/{roomId}/items")
-	public Room addRoomToUser(@PathVariable Integer userId,
+	@PostMapping("rooms")
+	public Room addRoomToUser(
 							  @RequestBody Room room,
 							  HttpServletRequest req,
 							  HttpServletResponse resp) {
@@ -51,9 +53,8 @@ public class RoomController {
 			}
 		return room;
 	}
-	@DeleteMapping("users/{userId}/rooms/{roomId}")
-	public void deleteRoomFromUser (Integer userId, 
-									Integer roomId,
+	@DeleteMapping("rooms/{roomId}")
+	public void deleteRoomFromUser (@PathVariable Integer roomId,
 									HttpServletResponse resp) {
 		if (svc.deleteRoom(userId, roomId)) {
 			resp.setStatus(204);
