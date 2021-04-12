@@ -69,5 +69,5 @@ This project helped me better grasp the capabilities of REST API by allowing me 
 -   Configure a Spring Boot app to publish a REST API.
     -   Use Spring REST annotations.
     -   Use Spring Data JPA to perform all CRUD operations.
-    - Send and receive JSON.
+    -   Send and receive JSON.
 
